@@ -12,6 +12,7 @@ export class DefaultComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    // document.getElementById('btn-add').click();
   }
 
   sideBarToggler($event: boolean) {

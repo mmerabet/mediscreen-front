@@ -1,8 +1,15 @@
-.stats-cards{
-  .mat-card{
-    overflow: hidden;
+#btn-add {
+  border: 1px solid #3f51b5;
+  margin-bottom: 10px;
+  transition: all 0.5s ease-in-out;
+
+  &:hover {
+    background-color: #3f51b5;
+    color: #fff;
   }
 }
+
 table.mat-table {
   width: 100%;
 }
+

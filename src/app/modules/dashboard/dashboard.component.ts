@@ -1,36 +1,25 @@
-import {AfterViewInit, Component, OnInit, ViewChild} from '@angular/core';
-import {MatPaginator} from "@angular/material/paginator";
+import {Component, ViewEncapsulation} from '@angular/core';
 import {DialogService} from "primeng/dynamicdialog";
 import {FormPatientComponent} from "../../patients/patient/form-patient/form-patient.component";
 import {StorePatientService} from "../../service/store-patient.service";
-
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit, AfterViewInit {
+export class DashboardComponent {
 
-  displayedColumns: string[] = ['position', 'name', 'weight', 'symbol'];
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-
-
+  encapsulation: ViewEncapsulation.None
   constructor(public dialogService: DialogService, private sps: StorePatientService) {
-  }
-
-  ngOnInit() {
-
-  }
-
-  ngAfterViewInit() {
   }
 
   showForm() {
     this.dialogService.open(FormPatientComponent, {
-      header: "Ajouter un Patient",
-      // width: '500px',
+      // header: "Ajouter un Patient",
+      width: '40rem',
+      contentStyle: {"max-height": "600px", "display": "block"},
+      // styleClass: 'teta',
       closeOnEscape: true,
       closable: true,
       dismissableMask: true,
