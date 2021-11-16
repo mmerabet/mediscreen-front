@@ -1,0 +1,38 @@
+table {
+  width: 100%;
+
+  th {
+    text-align: center;
+  }
+
+  tr {
+    //text-align: center;/
+    //transform: scale();
+    transition: background-color 0.2s, transform 0.1s linear;
+    &:hover {
+      transform: scale(1.010);
+      width: 120%;
+      cursor: pointer;
+      background-color: #75bef8;
+    }
+
+  }
+
+  td {
+    text-align: center !important;
+
+    mat-icon {
+      text-align: center !important;
+      font-size: 1.3rem;
+      //margin: 0 5px;
+      //padding: 15px;
+      //background-color: aqua;
+    }
+  }
+}
+
+
+
+
+
+

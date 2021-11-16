@@ -1,0 +1,85 @@
+<div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
+  <div fxFlex="" id="test">
+    <div class="mat-elevation-z8">
+      <table mat-table [dataSource]="patients">
+
+        <!-- Position Column -->
+        <ng-container matColumnDef="firstName">
+          <th mat-header-cell *matHeaderCellDef>FirstName</th>
+          <td mat-cell *matCellDef="let element"> {{element?.firstName}} </td>
+        </ng-container>
+
+        <!-- Name Column -->
+        <ng-container matColumnDef="lastName">
+          <th mat-header-cell *matHeaderCellDef>LastName</th>
+          <td mat-cell *matCellDef="let element"> {{element?.lastName}} </td>
+        </ng-container>
+
+        <!-- Weight Column -->
+        <ng-container matColumnDef="birthdate">
+          <th mat-header-cell *matHeaderCellDef>Birthdate</th>
+          <td mat-cell *matCellDef="let element"> {{element?.birthdate}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="gender">
+          <th mat-header-cell *matHeaderCellDef>Gender</th>
+          <td mat-cell *matCellDef="let element"> {{element?.gender}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="address">
+          <th mat-header-cell *matHeaderCellDef>Address</th>
+          <td mat-cell *matCellDef="let element"> {{element?.address}} </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="phone">
+          <th mat-header-cell *matHeaderCellDef>Phone</th>
+          <td mat-cell *matCellDef="let element"> {{element?.phone}} </td>
+        </ng-container>
+
+        <ng-container matColumnDef="actions">
+          <th mat-header-cell *matHeaderCellDef>Actions</th>
+          <td mat-cell *matCellDef="let element">
+            <mat-icon (click)="patientInfo(element)" mat-button color="primary">perm_identity</mat-icon>
+            <mat-icon (click)="updatePatient(element)">edit_outline</mat-icon>
+            <mat-icon (click)="deletePatient(element.id)">delete_outline</mat-icon>
+          </td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [pageSizeOptions]="[1, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements"></mat-paginator>
+    </div>
+  </div>
+</div>
+
+<!--<p-table  class="text-center" [value]="patients">-->
+<!--  <ng-template pTemplate="header">-->
+<!--    <tr>-->
+<!--      <th>Nom</th>-->
+<!--      <th>Prenom</th>-->
+<!--      <th>Adress</th>-->
+<!--      <th>Date de Naissance</th>-->
+<!--      <th>Genre</th>-->
+<!--      <th>Tel</th>-->
+<!--      <th>Actions</th>-->
+<!--    </tr>-->
+<!--  </ng-template>-->
+<!--  <ng-template pTemplate="body" let-patient>-->
+<!--    <tr class="text-center">-->
+<!--      <td>{{patient.lastName}}</td>-->
+<!--      <td>{{patient.firstName}}</td>-->
+<!--      <td>{{patient.address}}</td>-->
+<!--      <td>{{patient.birthdate}}</td>-->
+<!--      <td>{{patient.gender}}</td>-->
+<!--      <td>{{patient.phone}}</td>-->
+<!--      <td>-->
+<!--        <i class="pi pi-check"></i>-->
+<!--        <i class="pi pi-times" (click)="deletePatient(patient.id)"></i>-->
+<!--      </td>-->
+<!--    </tr>-->
+<!--  </ng-template>-->
+<!--</p-table>-->
