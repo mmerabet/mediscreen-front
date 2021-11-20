@@ -16,15 +16,15 @@ export class DashboardComponent {
 
   showForm() {
     this.dialogService.open(FormPatientComponent, {
-      // header: "Ajouter un Patient",
       width: '40rem',
       contentStyle: {"max-height": "600px", "display": "block"},
-      // styleClass: 'teta',
       closeOnEscape: true,
       closable: true,
       dismissableMask: true,
       showHeader: true,
       // a la fermeture de la modal on ajoute le patient mis dans data de la modale dans addPatient
-    }).onClose.subscribe(patient => this.sps.addPatient(patient))
+    }).onClose.subscribe(patient => {
+      if (patient) this.sps.addPatient(patient);
+    })
   }
 }

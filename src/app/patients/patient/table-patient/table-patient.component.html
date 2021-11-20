@@ -1,7 +1,7 @@
 <div fxLayout="row" fxFlexAlign="space-between center" fxLayoutGap="20px">
   <div fxFlex="" id="test">
     <div class="mat-elevation-z8" id="container-table-patient">
-      <table mat-table [dataSource]="patients">
+      <table mat-table [dataSource]="dataSource">
 
         <!-- Position Column -->
         <ng-container matColumnDef="firstName">
@@ -12,39 +12,39 @@
         <!-- Name Column -->
         <ng-container matColumnDef="lastName">
           <th mat-header-cell *matHeaderCellDef>Nom</th>
-          <td mat-cell *matCellDef="let element"> {{element?.lastName}} </td>
+          <td (click)="showInfo(element)" mat-cell *matCellDef="let element"> {{element?.lastName}} </td>
         </ng-container>
 
         <!-- Weight Column -->
         <ng-container matColumnDef="birthdate">
           <th mat-header-cell *matHeaderCellDef>Date de Naissance</th>
-          <td mat-cell *matCellDef="let element"> {{element?.birthdate}} </td>
+          <td (click)="showInfo(element)" mat-cell *matCellDef="let element"> {{element?.birthdate}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="gender">
           <th mat-header-cell *matHeaderCellDef>Genre</th>
-          <td mat-cell *matCellDef="let element"> {{element?.gender}} </td>
+          <td (click)="showInfo(element)" mat-cell *matCellDef="let element"> {{element?.gender}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="address">
           <th mat-header-cell *matHeaderCellDef>Addresse</th>
-          <td mat-cell *matCellDef="let element"> {{element?.address}} </td>
+          <td (click)="showInfo(element)" mat-cell *matCellDef="let element"> {{element?.address}} </td>
         </ng-container>
 
         <!-- Symbol Column -->
         <ng-container matColumnDef="phone">
           <th mat-header-cell *matHeaderCellDef>Tel</th>
-          <td mat-cell *matCellDef="let element"> {{element?.phone}} </td>
+          <td (click)="showInfo(element)" mat-cell *matCellDef="let element"> {{element?.phone}} </td>
         </ng-container>
 
         <ng-container matColumnDef="actions">
           <th mat-header-cell *matHeaderCellDef>Actions</th>
           <td mat-cell *matCellDef="let element">
-            <mat-icon (click)="patientInfo(element)" mat-button color="primary">perm_identity</mat-icon>
-            <mat-icon (click)="updatePatient(element)">edit_outline</mat-icon>
-            <mat-icon (click)="deletePatient(element.id)">delete_outline</mat-icon>
+<!--            <mat-icon title="Consulter" (click)="patientInfo(element)" mat-button color="primary">perm_identity</mat-icon>-->
+            <mat-icon title="Modifier" (click)="updatePatient(element)">edit_outline</mat-icon>
+            <mat-icon title="Supprimer" (click)="deletePatient(element.id)">delete_outline</mat-icon>
           </td>
         </ng-container>
 
@@ -52,7 +52,13 @@
         <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
       </table>
       <div class="container-paginator">
-        <mat-paginator [pageSizeOptions]="[1, 10, 20]" showFirstLastButtons aria-label="Select page of patient elements"></mat-paginator>
+        <mat-paginator [showFirstLastButtons]="true"
+                       [pageSize]="pageSize"
+                       [length]="totalSize"
+                       [pageIndex]="currentPage"
+                       [pageSizeOptions]="[5, 10, 20]"
+                      (page)="pageEvent = getPagination($event)">
+        </mat-paginator>
       </div>
     </div>
   </div>

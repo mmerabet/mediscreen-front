@@ -29,7 +29,7 @@ export class PatientService {
     return this.http.put<Patient>(`${this.apiServerUrl}/patient`, patient);
   }
 
-  public deletePatient(idPatient: number): Observable<string> {
-    return this.http.delete<string>(`${this.apiServerUrl}/patient/${idPatient}`);
+  public deletePatient(idPatient: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiServerUrl}/patient/${idPatient}`);
   }
 }

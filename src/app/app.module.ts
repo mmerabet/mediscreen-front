@@ -6,6 +6,7 @@ import {HttpClientModule} from "@angular/common/http";
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations"
 import {AppRoutingModule} from "./app-routing.module";
 import {DefaultModule} from "./layouts/default/default.module";
+import {MessageService} from "primeng/api";
 
 
 @NgModule({
@@ -19,7 +20,7 @@ import {DefaultModule} from "./layouts/default/default.module";
     HttpClientModule,
     DefaultModule
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

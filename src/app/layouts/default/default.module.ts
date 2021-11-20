@@ -15,6 +15,8 @@ import {PatientsModule} from "../../patients/patients.module";
 import {MatButtonModule} from "@angular/material/button";
 import {DialogService, DynamicDialogModule} from "primeng/dynamicdialog";
 import {PatientInfoComponent} from "../../modules/patient-info/patient-info.component";
+import {ToastModule} from "primeng/toast";
+import {MatIconModule} from "@angular/material/icon";
 
 
 @NgModule({
@@ -24,24 +26,27 @@ import {PatientInfoComponent} from "../../modules/patient-info/patient-info.comp
     PatientInfoComponent,
 
   ],
-  imports: [
-    CommonModule,
-    RouterModule,
-    SharedModule,
-    MatSidenavModule,
-    MatDividerModule,
-    FlexLayoutModule,
-    MatCardModule,
-    MatTableModule,
-    MatPaginatorModule,
-    PatientsModule,
-    MatButtonModule,
-    DynamicDialogModule,
-    MatDividerModule
-  ],
+    imports: [
+        CommonModule,
+        RouterModule,
+        SharedModule,
+        MatSidenavModule,
+        MatDividerModule,
+        FlexLayoutModule,
+        MatCardModule,
+        MatTableModule,
+        MatPaginatorModule,
+        PatientsModule,
+        MatButtonModule,
+        DynamicDialogModule,
+        MatDividerModule,
+        MatCardModule,
+        ToastModule,
+        MatIconModule
+    ],
   providers: [
     DashboardService,
-    DialogService
+    DialogService,
   ]
 })
 export class DefaultModule {
