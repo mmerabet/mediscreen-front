@@ -17,6 +17,8 @@ import {DialogService, DynamicDialogModule} from "primeng/dynamicdialog";
 import {PatientInfoComponent} from "../../modules/patient-info/patient-info.component";
 import {ToastModule} from "primeng/toast";
 import {MatIconModule} from "@angular/material/icon";
+import {TableConsultationComponent} from "../../modules/patient-info/table-consultation/table-consultation.component";
+import {IdentiteComponent} from "../../modules/patient-info/identite/identite.component";
 
 
 @NgModule({
@@ -24,6 +26,8 @@ import {MatIconModule} from "@angular/material/icon";
     DefaultComponent,
     DashboardComponent,
     PatientInfoComponent,
+    TableConsultationComponent,
+    IdentiteComponent
 
   ],
     imports: [

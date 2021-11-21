@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBase: 'http://localhost:8282'
+  apiBasePatient: 'http://localhost:8282',
+  apiBaseHistory: 'http://localhost:8080/patHistory'
 };
 
 /*

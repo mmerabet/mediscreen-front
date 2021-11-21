@@ -18,7 +18,7 @@ export class TablePatientComponent implements OnInit {
   patients: Patient[] = [];
   patient: Patient;
   displayedColumns: string[] = ['firstName', 'lastName', 'birthdate', 'gender', 'address', 'phone', 'actions'];
-  pageSize = 2;
+  pageSize = 10;
   totalSize  = 0;
   currentPage = 0;
   private array: any;

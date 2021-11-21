@@ -7,8 +7,9 @@ table {
     text-align: center;
   }
 
-  tr {
+  tr.mat-row  {
     transition: background-color 0.2s, transform 0.1s linear;
+    color: red;
 
     &:hover {
       transform: scale(1.010);
@@ -16,7 +17,6 @@ table {
       cursor: pointer;
       background-color: #75bef8;
     }
-
   }
 
   td {
