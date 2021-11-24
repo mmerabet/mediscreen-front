@@ -1,6 +1,6 @@
-export interface consultation {
+export interface Consultation {
+  id: string,
   recommendations: string,
   observations: string,
-  medecin: string,
-  date: string,
+  date: string
 }

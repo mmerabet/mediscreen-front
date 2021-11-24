@@ -8,7 +8,6 @@ import {MatSidenavModule} from "@angular/material/sidenav";
 import {MatDividerModule} from "@angular/material/divider";
 import {FlexLayoutModule} from "@angular/flex-layout";
 import {MatCardModule} from "@angular/material/card";
-import {DashboardService} from "../../modules/dashboard.service";
 import {MatTableModule} from "@angular/material/table";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {PatientsModule} from "../../patients/patients.module";
@@ -19,6 +18,8 @@ import {ToastModule} from "primeng/toast";
 import {MatIconModule} from "@angular/material/icon";
 import {TableConsultationComponent} from "../../modules/patient-info/table-consultation/table-consultation.component";
 import {IdentiteComponent} from "../../modules/patient-info/identite/identite.component";
+import {FormConsultationComponent} from "../../modules/patient-info/form-consultation/form-consultation.component";
+import {ReactiveFormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -27,29 +28,30 @@ import {IdentiteComponent} from "../../modules/patient-info/identite/identite.co
     DashboardComponent,
     PatientInfoComponent,
     TableConsultationComponent,
-    IdentiteComponent
+    IdentiteComponent,
+    FormConsultationComponent,
 
   ],
-    imports: [
-        CommonModule,
-        RouterModule,
-        SharedModule,
-        MatSidenavModule,
-        MatDividerModule,
-        FlexLayoutModule,
-        MatCardModule,
-        MatTableModule,
-        MatPaginatorModule,
-        PatientsModule,
-        MatButtonModule,
-        DynamicDialogModule,
-        MatDividerModule,
-        MatCardModule,
-        ToastModule,
-        MatIconModule
-    ],
+  imports: [
+    CommonModule,
+    RouterModule,
+    SharedModule,
+    MatSidenavModule,
+    MatDividerModule,
+    FlexLayoutModule,
+    MatCardModule,
+    MatTableModule,
+    MatPaginatorModule,
+    PatientsModule,
+    MatButtonModule,
+    DynamicDialogModule,
+    MatDividerModule,
+    MatCardModule,
+    ToastModule,
+    MatIconModule,
+    ReactiveFormsModule
+  ],
   providers: [
-    DashboardService,
     DialogService,
   ]
 })

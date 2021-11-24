@@ -1,8 +1,8 @@
-import {consultation} from "./consultation";
+import {Consultation} from "./consultation";
 
 export interface HistoryP {
-  _id?: number,
-  consultations?: consultation[],
+  id?: string,
+  consultations?: Consultation[],
   // recommendations: string,
   // observations: string,
   // medecin: string,

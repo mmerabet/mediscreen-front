@@ -1,0 +1,35 @@
+<div class="formulaire form-patient">
+  <form [formGroup]="form">
+    <div class="title">{{patient ? 'Modifier un patient' :'Ajouter un patient'}}</div>
+    <div class="row">
+      <input placeholder="prenom" id="prenom" type="text" autocomplete="off" formControlName="firstName">
+    </div>
+
+    <div class="row">
+      <input placeholder="nom" id="nom" type="text" autocomplete="off" formControlName="lastName">
+    </div>
+
+    <div class="row">
+      <input placeholder="date-naissance" id="date-naissance" type="date" autocomplete="off" formControlName="birthdate">
+    </div>
+
+<!--    <div class="row">-->
+<!--      <input placeholder="genre" id="genre" type="text" autocomplete="off" >-->
+<!--    </div>-->
+
+    <div class="row">
+      <p-dropdown
+                  (onChange)="genreChoose($event)"
+                  placeholder="Veuillez chosisir un genre"
+                  [options]="genres" formControlName="gender"></p-dropdown>
+    </div>
+
+    <div class="row">
+      <input placeholder="adresse" id="adresse" type="text" autocomplete="off"  formControlName="address">
+    </div>
+    <div class="row">
+      <input placeholder="phone-mobile" id="phone-mobile" type="text" autocomplete="off"  formControlName="phone">
+    </div>
+    <button type="submit" (click)="patientForm()" [disabled]="form.invalid">{{ patient ? 'Modifier' :'Creer' }}</button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<div class="container-card identité">
+  <mat-card class="example-card">
+    <mat-card-title>Identité</mat-card-title>
+    <mat-card-content>
+      <div><strong>Prénom:</strong>  {{patient?.firstName}}</div>
+      <div><strong>Nom:</strong>  {{patient?.lastName}}</div>
+      <div><strong>Date de naissance:</strong>  {{patient?.birthdate}}</div>
+      <div><strong>Genre:</strong>  {{patient?.gender}}</div>
+      <div><strong>Addresse:</strong>  {{patient?.address}}</div>
+      <div><strong>Tél:</strong>  {{patient?.phone}}</div>
+
+    </mat-card-content>
+    <mat-card-actions>
+      <button (click)="updatePatient(patient)" mat-button>
+        <mat-icon>edit</mat-icon>
+      </button>
+      <button (click)="deletePatient(patient.id)" mat-button>
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-actions>
+  </mat-card>
+</div>

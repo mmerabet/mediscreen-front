@@ -1,0 +1,66 @@
+@import "src/styles";
+
+table {
+  width: 90%;
+
+  th {
+    text-align: center;
+  }
+
+  tr.mat-row  {
+    transition: background-color 0.2s, transform 0.1s linear;
+    color: red;
+
+    &:hover {
+      transform: scale(1.010);
+      width: 120%;
+      cursor: pointer;
+      background-color: #75bef8;
+    }
+  }
+
+  td {
+    text-align: center !important;
+
+    mat-icon {
+      display: inline-block;
+      width: 2rem;
+      text-align: center !important;
+      font-size: 1.5rem;
+      color: $primary;
+      transition: all 0.2s;
+      //padding: 10px;
+      //margin: 0 0.5rem 0 0;
+      &:first-child{
+        margin-right: 0.5rem;
+      }
+
+      &:hover{
+        font-size: 1.8rem;
+        //background-color: $primary;
+        color: #ffffff;
+      }
+    }
+  }
+}
+
+mat-paginator {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  flex-direction: column;
+}
+.container-card-empty {
+  width: 80%;
+  margin: 3rem auto;
+  text-align: center;
+  .empty-card{
+    padding-top: 2rem;
+    width: 100%;
+    height: 10vh;
+  }
+}
+
+
+
+
