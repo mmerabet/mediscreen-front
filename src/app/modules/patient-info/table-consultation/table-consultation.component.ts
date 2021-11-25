@@ -8,7 +8,6 @@ import {DialogService} from "primeng/dynamicdialog";
 import {MessageService} from "primeng/api";
 import {StorePatientService} from "../../../service/store-patient.service";
 import {HistoryService} from "../../../service/history.service";
-import {Patient} from "../../../../model/patient";
 import {Consultation} from "../../../../model/consultation";
 import {FormConsultationComponent} from "../form-consultation/form-consultation.component";
 
@@ -18,7 +17,7 @@ import {FormConsultationComponent} from "../form-consultation/form-consultation.
   styleUrls: ['./table-consultation.component.scss']
 })
 export class TableConsultationComponent implements OnInit {
-  displayedColumns: string[] = ['recommendations', 'observations', 'medecin', 'date','actions'];
+  displayedColumns: string[] = ['recommendations', 'observations', 'date', 'actions'];
   pageSize = 5;
   totalSize = 0;
   currentPage = 0;
@@ -28,9 +27,10 @@ export class TableConsultationComponent implements OnInit {
   historys: Consultation[];
   id: string;
   empty = false;
+  consultationDetail: Consultation;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatTable, {static:false}) table: MatTable<HistoryP>;
+  @ViewChild(MatTable, {static: false}) table: MatTable<HistoryP>;
 
   constructor(private route: ActivatedRoute,
               private ps: PatientService,
@@ -42,7 +42,7 @@ export class TableConsultationComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.id = this.route.snapshot.params['id'];
+    this.id = this.route.snapshot.params['id'];
     this.hs.getHistoryById(this.id).subscribe(
       data => {
         this.dataSource = new MatTableDataSource<Consultation>(data.consultations);
@@ -53,32 +53,33 @@ export class TableConsultationComponent implements OnInit {
         // this.table?.renderRows();
       },
       () => {
-      console.error("Historique non trouvé");
-      this.empty = true;
-    }
+        console.error("Historique non trouvé");
+        this.empty = true;
+      }
     );
   }
 
   showInfo(element) {
-
+    this.consultationDetail = element;
   }
 
   updateConsultation(consultation) {
-  this.dialogService.open(FormConsultationComponent, {
-    data: {id: this.id, consultation},
-    width: '45rem',
-    contentStyle: {"display": "block"},
-    closeOnEscape: true,
-    closable: true,
-    dismissableMask: true,
-    showHeader: true,
-  })
+    this.dialogService.open(FormConsultationComponent, {
+      data: {id: this.id, consultation},
+      width: '45rem',
+      contentStyle: {"display": "block"},
+      closeOnEscape: true,
+      closable: true,
+      dismissableMask: true,
+      showHeader: true,
+    })
   }
 
   deleteConsultation(idConsultation) {
     console.log(idConsultation);
     this.hs.deleteConsultation(this.id, idConsultation).subscribe();
   }
+
   getPagination(e: PageEvent): any {
     this.currentPage = e.pageIndex;
     this.pageSize = e.pageSize;

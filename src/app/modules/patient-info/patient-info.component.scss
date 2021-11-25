@@ -24,11 +24,18 @@ h2 {
 .container-card{
   width: 100%;
 }
-.consultations{
-  flex-basis: 60%;
-  mat-card{
+.consultations {
+  flex-basis: 65%;
+
+  mat-card {
     width: 100%;
   }
+}
+
+.identite{
+  //width: 30%;
+  //overflow: hidden;
+  flex-basis: 35%;
 }
 
 mat-card {
@@ -68,15 +75,5 @@ mat-card-content {
     margin-bottom: 2rem;
   }
 }
-
-//button {
-//  transition: all 0.4s linear;
-//
-//  &:hover {
-//    background-color: $primary;
-//    color: #fff;
-//  }
-//}
-
 
 

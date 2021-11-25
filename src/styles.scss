@@ -5,3 +5,49 @@ body{
   box-sizing: border-box;
   height: 100vh;
 }
+
+table {
+  width: 100%;
+  text-align: center;
+  th {
+    text-align: center!important;
+  }
+}
+
+
+
+tr.mat-row  {
+  transition: background-color 0.2s, transform 0.1s linear;
+
+  &:hover {
+    transform: scale(1.010);
+    width: 120%;
+    cursor: pointer;
+    background-color: #75bef8;
+  }
+}
+
+td{
+  text-align: center !important;
+
+
+  mat-icon {
+    display: inline-block;
+    width: 2rem;
+    text-align: center !important;
+    font-size: 1.5rem;
+    color: $primary;
+    transition: all 0.2s;
+    //padding: 10px;
+    //margin: 0 0.5rem 0 0;
+    &:first-child{
+      margin-right: 0.5rem;
+    }
+
+    &:hover{
+      font-size: 1.8rem;
+      //background-color: $primary;
+      color: #ffffff;
+    }
+  }
+}
