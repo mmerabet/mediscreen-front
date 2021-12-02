@@ -54,6 +54,7 @@ export class FormConsultationComponent implements OnInit {
   }
 
   consultationForm() {
+    console.log(this.form1.value);
     if (this.consultation) {
       this.hs.updateHistory(this.form1.value).subscribe();
     } else {

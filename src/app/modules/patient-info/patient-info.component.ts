@@ -43,7 +43,7 @@ export class PatientInfoComponent implements OnInit {
       dismissableMask: true,
       showHeader: true,
       // a la fermeture de la modal on ajoute le patient mis dans data de la modale dans addPatient
-    })
+    });
 
     //   this.dialogService.open(FormPatientComponent, {
     //     width: '40rem',

@@ -10,6 +10,7 @@ import {StorePatientService} from "../../../service/store-patient.service";
 import {HistoryService} from "../../../service/history.service";
 import {Consultation} from "../../../../model/consultation";
 import {FormConsultationComponent} from "../form-consultation/form-consultation.component";
+import {Patient} from "../../../../model/patient";
 
 @Component({
   selector: 'app-table-consultation',
@@ -24,10 +25,11 @@ export class TableConsultationComponent implements OnInit {
   private array: any;
   pageEvent: PageEvent;
   dataSource: MatTableDataSource<Consultation>;
-  historys: Consultation[];
+  historys: HistoryP;
   id: string;
   empty = false;
   consultationDetail: Consultation;
+  patient: Patient;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatTable, {static: false}) table: MatTable<HistoryP>;
@@ -43,8 +45,12 @@ export class TableConsultationComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.route.snapshot.params['id'];
+    this.ps.getPatientById(this.id).subscribe(p => {
+      return this.patient = p;
+    });
     this.hs.getHistoryById(this.id).subscribe(
       data => {
+        this.historys = data;
         this.dataSource = new MatTableDataSource<Consultation>(data.consultations);
         this.dataSource.paginator = this.paginator;
         this.array = data.consultations;
@@ -91,5 +97,9 @@ export class TableConsultationComponent implements OnInit {
     const start = this.currentPage * this.pageSize;
     const part = this.array.slice(start, end);
     this.dataSource = part;
+  }
+
+  createRapport() {
+    this.ps.createRapport({patient: this.patient, history: this.historys}).subscribe(r => console.log(r))
   }
 }

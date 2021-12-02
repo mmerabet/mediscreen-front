@@ -26,8 +26,8 @@ export class FormPatientComponent implements OnInit {
       id: [this.patient?.id],
       firstName: [this.patient?.firstName, [Validators.required]],
       lastName: [this.patient?.lastName, [Validators.required]],
-      birthdate: [this.patient?.birthdate],
-      gender: [this.patient?.gender],
+      birthdate: [this.patient?.birthdate, [Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')]],
+      gender: [this.patient?.gender, [Validators.required]],
       address: [this.patient?.address],
       phone: [this.patient?.phone],
     });
@@ -45,10 +45,5 @@ export class FormPatientComponent implements OnInit {
         this.messageService.add({severity: 'success', summary: 'Ajout réussi', detail: 'Le patient à bien été ajouté'})
       });
     } else this.ps.createPatient(this.form.value).subscribe(patient => this.ref.close(patient));
-  }
-
-  genreChoose({value}) {
-
-    console.log(value.genre);
   }
 }

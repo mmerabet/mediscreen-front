@@ -29,7 +29,11 @@ export class IdentiteComponent implements OnInit {
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
     this.ps.getPatientById(id).subscribe(patient => this.patient = patient);
-    this.ps.getAllPatients().subscribe(patients => this.patients = patients);
+    this.storePatientService.observe().subscribe(patients => {
+      console.log(patients)
+      this.patients = patients
+    });
+    this.ps.getAllPatients().subscribe(patients => this.storePatientService.addPatients(patients));
   }
 
   updatePatient(patient: Patient) {

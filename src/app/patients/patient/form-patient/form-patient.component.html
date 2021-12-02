@@ -10,7 +10,7 @@
     </div>
 
     <div class="row">
-      <input placeholder="date-naissance" id="date-naissance" type="date" autocomplete="off" formControlName="birthdate">
+      <input placeholder="date-naissance" id="date-naissance" type="date" autocomplete="off" formControlName="birthdate"  max="2021-11-27" required>
     </div>
 
 <!--    <div class="row">-->
@@ -19,7 +19,6 @@
 
     <div class="row">
       <p-dropdown
-                  (onChange)="genreChoose($event)"
                   placeholder="Veuillez chosisir un genre"
                   [options]="genres" formControlName="gender"></p-dropdown>
     </div>

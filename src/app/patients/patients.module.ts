@@ -1,6 +1,5 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {PatientsComponent} from "./patients.component";
 import {TablePatientComponent} from "./patient/table-patient/table-patient.component";
 import {FormPatientComponent} from './patient/form-patient/form-patient.component';
 import {TableModule} from "primeng/table";
@@ -15,7 +14,6 @@ import {DropdownModule} from "primeng/dropdown";
 
 @NgModule({
   declarations: [
-    PatientsComponent,
     TablePatientComponent,
     FormPatientComponent
   ],
