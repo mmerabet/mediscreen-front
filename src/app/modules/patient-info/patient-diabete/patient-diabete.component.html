@@ -1,0 +1,10 @@
+<div id="container-diabete">
+  <mat-card>
+  <h2>Rapport de Diabete</h2>
+  <p>Prenom : {{rapport?.firstName}}</p>
+  <p>Nom :  {{rapport?.lastName}}</p>
+  <p>Age :  {{rapport?.age}} ans</p>
+  <p>Genre :  {{rapport?.gender}}</p>
+    <p>Probabilité de diabète :  <span [ngStyle]="proba()">{{rapport?.diabetePatientRiskLevel}}</span></p>
+  </mat-card>
+</div>

@@ -1,7 +1,7 @@
 import {Component, ViewEncapsulation} from '@angular/core';
 import {DialogService} from "primeng/dynamicdialog";
-import {FormPatientComponent} from "../../patients/patient/form-patient/form-patient.component";
-import {StorePatientService} from "../../service/store-patient.service";
+import {FormPatientComponent} from "../patients/patient/form-patient/form-patient.component";
+import {StorePatientService} from "../service/store-patient.service";
 
 @Component({
   selector: 'app-dashboard',

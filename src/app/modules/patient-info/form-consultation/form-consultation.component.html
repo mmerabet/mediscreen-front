@@ -1,16 +1,14 @@
 <div class="formulaire form-consultation">
   <form [formGroup]="form1">
-    <div class="title">{{consultation ? 'Modifier une consultation' :'Ajouter une consultation'}}</div>
-
-    <div class="container-text-area">
-      <textarea placeholder="Observations" formControlName="observations" required></textarea>
-    </div>
+    <div class="title">{{consultation ? 'Modifier une consultation' : 'Ajouter une consultation'}}</div>
 
     <div class="container-text-area">
       <textarea placeholder="Recommendations" formControlName="recommendations" required></textarea>
     </div>
 
-
-    <button type="button" (click)="consultationForm()" [disabled]="form1.invalid">{{ consultation ? 'Modifier' :'Creer' }}</button>
+    <div class="container-text-area">
+      <textarea placeholder="Observations" formControlName="observations" required></textarea>
+    </div>
+    <button type="button" (click)="consultationForm()" [disabled]="form1.invalid">{{ consultation ? 'Modifier' : 'Creer' }}</button>
   </form>
 </div>

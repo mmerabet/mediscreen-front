@@ -5,14 +5,13 @@ import {Component, OnInit} from '@angular/core';
   templateUrl: './default.component.html',
   styleUrls: ['./default.component.scss']
 })
-export class DefaultComponent implements OnInit {
+export class DefaultComponent {
   sideBarOpen = true;
 
   constructor() {
   }
 
   ngOnInit(): void {
-    // document.getElementById('btn-add').click();
   }
 
   sideBarToggler($event: boolean) {

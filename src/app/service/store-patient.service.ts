@@ -10,7 +10,7 @@ export class StorePatientService {
 
   private behaviorSubject = new BehaviorSubject<Patient[]>([]);
 
-  constructor(private ps: PatientService) {
+  constructor() {
   }
 
   observe(): Observable<Patient[]> {

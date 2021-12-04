@@ -18,7 +18,7 @@ import {MessageService} from "primeng/api";
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    DefaultModule
+    DefaultModule,
   ],
   providers: [MessageService],
   bootstrap: [AppComponent]

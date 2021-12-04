@@ -3,5 +3,4 @@ export interface HistoryDTO {
   idConsultation?: string,
   recommendations?: string,
   observations?: string,
-  date?: string
 }

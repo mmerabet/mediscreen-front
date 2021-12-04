@@ -30,7 +30,6 @@ export class IdentiteComponent implements OnInit {
     const id = this.route.snapshot.params['id'];
     this.ps.getPatientById(id).subscribe(patient => this.patient = patient);
     this.storePatientService.observe().subscribe(patients => {
-      console.log(patients)
       this.patients = patients
     });
     this.ps.getAllPatients().subscribe(patients => this.storePatientService.addPatients(patients));
@@ -46,7 +45,7 @@ export class IdentiteComponent implements OnInit {
         this.ps.getPatientById(patient.id).subscribe(patient => this.patient = patient);
       },
       (error) => {
-        this.messageService.add({severity: 'success', summary: 'Suppression réussi', detail: 'Le patient à bien été supprimé'})
+        this.messageService.add({severity: 'error', summary: 'modification réussi', detail: 'Le patient n\'à pas été modifié'})
       });
   }
 

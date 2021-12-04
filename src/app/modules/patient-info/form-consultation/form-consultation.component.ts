@@ -15,7 +15,6 @@ import {HistoryP} from "../../../../model/historyP";
 })
 export class FormConsultationComponent implements OnInit {
   form1: FormGroup;
-  // patient: Patient = this.config.data?.patient;
   history: HistoryP;
   consultation: Consultation = this.config.data.consultation;
   idHistory: string = this.config.data.id;
@@ -37,15 +36,12 @@ export class FormConsultationComponent implements OnInit {
   }
 
   initConsultationForm() {
-    console.log(this.consultation?.id, ' formulaire modif consultation');
-    console.log(this.idHistory);
     this.form1 = this.fb.group({
       idHistory: [this.idHistory],
       idConsultation: [this.consultation?.id],
       recommendations: [this.consultation?.recommendations, [Validators.required]],
       observations: [this.consultation?.observations, [Validators.required]],
     });
-    // this.form1.statusChanges.subscribe(status => console.log(status));
   }
 
   @HostListener('document:keydown.escape', ['$event'])
@@ -54,12 +50,16 @@ export class FormConsultationComponent implements OnInit {
   }
 
   consultationForm() {
-    console.log(this.form1.value);
     if (this.consultation) {
-      this.hs.updateHistory(this.form1.value).subscribe();
+      this.hs.updateHistory(this.form1.value).subscribe(history => {
+        const consultation = history.consultations.find(c => c.id === this.consultation.id);
+        // console.log(consultation)
+        this.ref.close(consultation);
+      });
     } else {
-      this.hs.createHistory(this.form1.value).subscribe();
+      this.hs.createHistory(this.form1.value).subscribe(history => {
+        this.ref.close(history);
+      });
     }
-    this.ref.close();
   }
 }

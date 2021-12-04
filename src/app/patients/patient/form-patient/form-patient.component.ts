@@ -42,8 +42,11 @@ export class FormPatientComponent implements OnInit {
     if (this.patient) {
       this.ps.updatePatient(this.form.value).subscribe(patient => {
         this.ref.close(patient);
-        this.messageService.add({severity: 'success', summary: 'Ajout réussi', detail: 'Le patient à bien été ajouté'})
+        this.messageService.add({severity: 'success', summary: 'Ajout réussi', detail: 'Le patient à bien été modifé'})
       });
-    } else this.ps.createPatient(this.form.value).subscribe(patient => this.ref.close(patient));
+    } else this.ps.createPatient(this.form.value).subscribe(patient => {
+      this.ref.close(patient);
+      this.messageService.add({severity: 'success', summary: 'Ajout réussi', detail: 'Le patient à bien été ajouté'})
+    });
   }
 }

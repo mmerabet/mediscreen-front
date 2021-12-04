@@ -17,13 +17,13 @@ import {MessageService} from "primeng/api";
 export class TablePatientComponent implements OnInit {
   patients: Patient[] = [];
   patient: Patient;
+  dataSource: MatTableDataSource<Patient> = new MatTableDataSource<Patient>();
   displayedColumns: string[] = ['firstName', 'lastName', 'birthdate', 'gender', 'address', 'phone', 'actions'];
   pageSize = 10;
   totalSize  = 0;
   currentPage = 0;
   private array: any;
   pageEvent: PageEvent;
-  dataSource: MatTableDataSource<Patient>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatTable, {static:false}) table: MatTable<Patient>;
@@ -39,15 +39,15 @@ export class TablePatientComponent implements OnInit {
   ngOnInit(): void {
     //je m'abonne behaviorsubject
     this.sp.observe().subscribe(data => {
+
       this.patients = data;
       //permet de mettre a jour la table material en async
-      this.table?.renderRows();
-      this.dataSource = new MatTableDataSource<Patient>(data);
+      this.dataSource.data = data;
       this.dataSource.paginator = this.paginator;
+      // this.table?.renderRows();
       this.array = data;
       this.totalSize = this.array.length;
       this.iterator();
-
     });
     // je recupere dans le back les données
     this.ps.getAllPatients().subscribe(data => {
